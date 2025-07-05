@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="output.css">
+  <!-- Theme Flowbite start -->
+  <script>
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark')
+    }
+  </script>
+  <!-- Theme Flowbite end -->
+
+  <style>
+    section{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  </style>
+
+  <link rel="icon" href="assets/logo.svg" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+
+
+  <title>Kertaaji</title>
+</head>
+<body class="bg-white dark:bg-gray-900">
+  <!-- Navbar start -->
+
+  <nav id="nav" class="bg-white border-gray-200 dark:bg-gray-900 fixed top-0 left-0 w-full z-50">
+    <div id="container" class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <div class="kiri flex items-center gap-4">
+        <a href="#home" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <!-- <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" /> -->
+          <img src="assets/Logo-KT-Kertaaji.svg" class="h-8" alt="Flowbite Logo" />
+          <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Kertaaji</span>
+        </a>
+
+
+        <!-- Toggle dark mode start -->
+        <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+          <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+          <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+        </button>
+        <!-- Toggle dark mode end -->
+      </div>
+
+      <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+          </svg>
+      </button>
+      <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <li>
+            <a href="#home" class="nav-link block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Home</a>
+          </li>
+          <li>
+            <a href="#about" class="nav-link block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
+          </li>
+          <li>
+            <a href="#structure" class="nav-link block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Structure</a>
+          </li>
+          <li>
+            <a href="#events" class="nav-link block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Events</a>
+          </li>
+          <li>
+            <a href="#contact" class="nav-link block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Navbar end -->
+
+
+  <!-- Home Start -->
+   <section id="home" class="bg-white border-gray-200 dark:bg-gray-900">
+    <div class="max-w-screen-xl mx-auto h-screen md:pt-6 p-4 flex flex-col justify-center md:justify-between md:flex-wrap md:flex-row-reverse">
+      <div class="logo w-full md:w-[50%] mt-30 md:mt-20 md:flex md:justify-end">
+        <img src="assets/logo.svg" class="w-[250px] mx-auto md:mx-0 md:w-[500px]" alt="Flowbite Logo" />
+      </div>      
+      <div class="kalimat md:w-[50%] flex justify-center md:items-center">
+        <div class="flex flex-col items-center md:items-start">
+          <h1 class="text-4xl font-extrabold tracking-tight leading-none text-gray-900 text-center mt-12 md:text-left md:text-5xl lg:text-6xl dark:text-white">Karang Taruna Jitar Dukuh</h1>
+          <a href="#contact" class="px-6 py-3.5 text-white mt-8 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm me-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Contact Us</a>
+        </div>
+      </div>
+    </div>
+   </section>
+  <!-- Home End -->
+
+
+  <!-- About Start -->
+   <section id="about" class="bg-white dark:bg-gray-900">
+    <h3 class="text-center text-2xl md:text-4xl font-bold pt-18 mb-8 md:mb-12 text-blue-700">About Us</h3>
+    <div class="max-w-screen-xl mx-auto px-4 md:flex md:justify-between">
+      <div class="foto mb-4 px-4 md:w-[50%] md:px-8">
+        <div class="w-full h-[250px] md:h-[350px] mx-auto bg-gray-500 flex justify-center items-center text-white">
+          Foto Full Anggota Karang Taruna
+        </div>
+      </div>
+      <article class="md:w-[50%] px-4 md:px-12">
+        <p class="dark:text-white">(Penjelasan Tentang Kami) Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.Lorem ipsum dolor sit amet.
+        </p>
+      </article>
+    </div>
+   </section>
+  <!-- About End -->
+
+  <!-- structure Start -->
+   <section id="structure">
+    <div class="bg-white dark:bg-gray-900 pt-12">
+      <h3 class="text-center text-2xl md:text-4xl font-bold pt-14 mb-8 md:mb-12 text-blue-700">Organizational Structure</h3>
+      <div class="anggota max-w-screen-xl mx-auto px-4 flex justify-center md:gap-26 flex-wrap gap-8">
+        <div id="ketua" class="md:order-2">
+          <div class="w-[220px] md:w-[290px] h-[220px] md:h-[290px] bg-gray-500 rounded-full flex justify-center items-center"><p class="dark:text-white">Foto Ketua</p></div>
+          <p class="text-center mt-4 font-bold dark:text-white">Ketua</p>
+          <p class="text-center dark:text-white">Nama</p>
+        </div>
+
+        <div id="bendahara" class="md:order-1">
+          <div class="w-[220px] md:w-[290px] h-[220px] md:h-[290px] bg-gray-500 rounded-full flex justify-center items-center"><p class="dark:text-white">Foto Bendahara</p></div>
+          <p class="text-center mt-4 font-bold dark:text-white">Bendahara</p>
+          <p class="text-center dark:text-white">Nama</p>
+        </div>
+
+        <div id="sekertaris" class="md:order-3">
+          <div class="w-[220px] md:w-[290px] h-[220px] md:h-[290px] bg-gray-500 rounded-full flex justify-center items-center"><p class="dark:text-white">Foto Bendahara</p></div>
+          <p class="text-center mt-4 font-bold dark:text-white">Sekertaris</p>
+          <p class="text-center dark:text-white">Nama</p>
+        </div>
+
+      </div>
+    </div>
+   </section>
+  <!-- structure End -->
+
+
+  <!-- Events Start -->
+  <section id="events">
+    <div class="bg-white dark:bg-gray-900 pt-12">
+      <h3 class="text-center text-2xl md:text-4xl font-bold pt-14 mb-8 md:mb-12 text-blue-700">Events</h3>
+      <h5 class="text-center text-xl font-bold mb-4 dark:text-white">Upcoming Events</h5>
+
+      
+      <div class="max-w-screen-xl mx-auto p-8 flex flex-col items-center gap-8 md:flex-row md:justify-center md:gap-8">
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+          <div>
+              <!-- <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" /> -->
+              <img class="rounded-t-lg" src="assets/gambar-kegiatan.png" alt="" />
+          </div>
+          <div class="p-5">
+              <div>
+                  <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Judul Kegiatan 1</h5>
+              </div>
+              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">(Deskripsi Singkat Kegiatan) Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <button data-modal-target="default-modal-satu" data-modal-toggle="default-modal-satu" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                Read more
+              </button>
+          </div>
+        </div>
+
+        <!-- Main modal k1 start-->
+        <div id="default-modal-satu" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+          <div class="relative p-4 w-full max-w-2xl max-h-full">
+              <!-- Modal content -->
+              <div class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
+                  <!-- Modal header -->
+                  <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
+                      <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                          Detail Kegiatan
+                      </h3>
+                      <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="default-modal-satu">
+                          <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                          </svg>
+                          <span class="sr-only">Close modal</span>
+                      </button>
+                  </div>
+                  <!-- Modal body -->
+                  <div class="p-4 md:p-5 space-y-4">
+                      <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.Lorem ipsum dolor sit amet.
+                      </p>
+                      <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.Lorem ipsum dolor sit amet.
+                      </p>
+                  </div>
+              </div>
+          </div>
+        </div>
+        <!-- Main modal k1 end-->
+
+
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+          <div>
+              <!-- <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" /> -->
+              <img class="rounded-t-lg" src="assets/gambar-kegiatan.png" alt="" />
+          </div>
+          <div class="p-5">
+              <div>
+                  <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Judul Kegiatan 2</h5>
+              </div>
+              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">(Deskripsi Singkat Kegiatan) Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <button data-modal-target="default-modal-dua" data-modal-toggle="default-modal-dua" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                Read more
+              </button>
+          </div>
+        </div>
+
+        <!-- Main modal k2 start-->
+        <div id="default-modal-dua" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+          <div class="relative p-4 w-full max-w-2xl max-h-full">
+              <!-- Modal content -->
+              <div class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
+                  <!-- Modal header -->
+                  <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
+                      <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                          Detail Kegiatan
+                      </h3>
+                      <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="default-modal-dua">
+                          <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                          </svg>
+                          <span class="sr-only">Close modal</span>
+                      </button>
+                  </div>
+                  <!-- Modal body -->
+                  <div class="p-4 md:p-5 space-y-4">
+                      <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.Lorem ipsum dolor sit amet.
+                      </p>
+                      <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.Lorem ipsum dolor sit amet.
+                      </p>
+                  </div>
+              </div>
+          </div>
+        </div>
+        <!-- Main modal k2 end-->
+
+
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+          <div>
+              <!-- <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" /> -->
+              <img class="rounded-t-lg" src="assets/gambar-kegiatan.png" alt="" />
+          </div>
+          <div class="p-5">
+              <div>
+                  <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Judul Kegiatan 3</h5>
+              </div>
+              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">(Deskripsi Singkat Kegiatan) Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <button data-modal-target="default-modal-tiga" data-modal-toggle="default-modal-tiga" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                Read more
+              </button>
+          </div>
+        </div>
+      </div>
+      <!-- Main modal k3 start-->
+      <div id="default-modal-tiga" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+          <div class="relative p-4 w-full max-w-2xl max-h-full">
+              <!-- Modal content -->
+              <div class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
+                  <!-- Modal header -->
+                  <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
+                      <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                          Detail Kegiatan
+                      </h3>
+                      <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="default-modal-tiga">
+                          <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                          </svg>
+                          <span class="sr-only">Close modal</span>
+                      </button>
+                  </div>
+                  <!-- Modal body -->
+                  <div class="p-4 md:p-5 space-y-4">
+                      <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.Lorem ipsum dolor sit amet.
+                      </p>
+                      <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.Lorem ipsum dolor sit amet.
+                      </p>
+                  </div>
+              </div>
+          </div>
+        </div>
+      <!-- Main modal k3 end-->
+
+
+      
+      <h5 class="text-center text-xl font-bold mb-4 mt-20 dark:text-white">Previous Events</h5>
+
+      
+      <div class="max-w-screen-xl mx-auto p-8 flex flex-col items-center gap-8 md:flex-row md:justify-center md:gap-8">
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+          <div>
+              <!-- <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" /> -->
+              <img class="rounded-t-lg" src="assets/gambar-kegiatan.png" alt="" />
+          </div>
+          <div class="p-5">
+              <div>
+                  <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Judul Kegiatan 1</h5>
+              </div>
+              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">(Deskripsi Singkat Kegiatan) Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <button data-modal-target="default-modal-satu-p" data-modal-toggle="default-modal-satu-p" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                Read more
+              </button>
+          </div>
+        </div>
+
+        <!-- Main modal k1 start-->
+        <div id="default-modal-satu-p" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+          <div class="relative p-4 w-full max-w-2xl max-h-full">
+              <!-- Modal content -->
+              <div class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
+                  <!-- Modal header -->
+                  <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
+                      <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                          Detail Kegiatan
+                      </h3>
+                      <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="default-modal-satu-p">
+                          <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                          </svg>
+                          <span class="sr-only">Close modal</span>
+                      </button>
+                  </div>
+                  <!-- Modal body -->
+                  <div class="p-4 md:p-5 space-y-4">
+                      <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.Lorem ipsum dolor sit amet.
+                      </p>
+                      <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.Lorem ipsum dolor sit amet.
+                      </p>
+                  </div>
+              </div>
+          </div>
+        </div>
+        <!-- Main modal k1 end-->
+
+
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+          <div>
+              <!-- <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" /> -->
+              <img class="rounded-t-lg" src="assets/gambar-kegiatan.png" alt="" />
+          </div>
+          <div class="p-5">
+              <div>
+                  <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Judul Kegiatan 2</h5>
+              </div>
+              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">(Deskripsi Singkat Kegiatan) Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <button data-modal-target="default-modal-dua-p" data-modal-toggle="default-modal-dua-p" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                Read more
+              </button>
+          </div>
+        </div>
+
+        <!-- Main modal k2 start-->
+        <div id="default-modal-dua-p" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+          <div class="relative p-4 w-full max-w-2xl max-h-full">
+              <!-- Modal content -->
+              <div class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
+                  <!-- Modal header -->
+                  <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
+                      <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                          Detail Kegiatan
+                      </h3>
+                      <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="default-modal-dua-p">
+                          <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                          </svg>
+                          <span class="sr-only">Close modal</span>
+                      </button>
+                  </div>
+                  <!-- Modal body -->
+                  <div class="p-4 md:p-5 space-y-4">
+                      <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.Lorem ipsum dolor sit amet.
+                      </p>
+                      <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.Lorem ipsum dolor sit amet.
+                      </p>
+                  </div>
+              </div>
+          </div>
+        </div>
+        <!-- Main modal k2 end-->
+
+
+        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+          <div>
+              <!-- <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" /> -->
+              <img class="rounded-t-lg" src="assets/gambar-kegiatan.png" alt="" />
+          </div>
+          <div class="p-5">
+              <div>
+                  <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">Judul Kegiatan 3</h5>
+              </div>
+              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">(Deskripsi Singkat Kegiatan) Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <button data-modal-target="default-modal-tiga-p" data-modal-toggle="default-modal-tiga-p" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                Read more
+              </button>
+          </div>
+        </div>
+      </div>
+      <!-- Main modal k3 start-->
+      <div id="default-modal-tiga-p" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+          <div class="relative p-4 w-full max-w-2xl max-h-full">
+              <!-- Modal content -->
+              <div class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
+                  <!-- Modal header -->
+                  <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
+                      <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                          Detail Kegiatan
+                      </h3>
+                      <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="default-modal-tiga-p">
+                          <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                          </svg>
+                          <span class="sr-only">Close modal</span>
+                      </button>
+                  </div>
+                  <!-- Modal body -->
+                  <div class="p-4 md:p-5 space-y-4">
+                      <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.Lorem ipsum dolor sit amet.
+                      </p>
+                      <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.Lorem ipsum dolor sit amet.
+                      </p>
+                  </div>
+              </div>
+          </div>
+        </div>
+      <!-- Main modal k3 end-->
+
+
+   </section>
+  <!-- Events End -->
+
+  <!-- Contact Start -->
+   <section id="contact">
+    <div class="bg-white dark:bg-gray-900">
+      <h3 class="text-center text-2xl md:text-4xl font-bold pt-14 mb-8 md:mb-12 text-blue-700">Contact Us</h3>
+      <div class="max-w-screen-xl mx-auto px-8 pb-26 pt-8 columns-1 sm:columns-2 sm:gap-16 md:columns-4 md:gap-16">
+        <div id="ig">
+          <a href="#" class="flex items-center gap-2 justify-center">
+            <img src="assets/instagram.png" class="w-9 block" alt="">
+            <p class="text-gray-500 dark:text-gray-400">nama</p>
+          </a>
+        </div>
+        <div id="fb" class="mt-10 md:mt-0">
+          <a href="#" class="flex items-center gap-2 justify-center">
+            <img src="assets/facebook.png" class="w-8 block" alt="">
+            <p class="text-gray-500 dark:text-gray-400">nama</p>
+          </a>
+        </div>
+        <div id="wa" class="mt-10 md:mt-0">
+          <a href="#" class="flex items-center gap-2 justify-center">
+            <img src="assets/wa.png" class="w-8 block" alt="">
+            <p class="text-gray-500 dark:text-gray-400">nomor</p>
+          </a>
+        </div>
+        <div id="tt" class="mt-10 md:mt-0">
+          <a href="#" class="flex items-center gap-2 justify-center">
+            <img src="assets/tiktok.png" class="w-8 block" alt="">
+            <p class="text-gray-500 dark:text-gray-400">nama</p>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Start -->
+  <div>
+    <div class="bg-white dark:bg-gray-900">
+      <div class="max-w-screen-xl mx-auto">
+        
+
+        <div class="bg-white rounded-lg shadow-sm dark:bg-gray-900 m-4">
+            <div class="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+                <div class="sm:flex sm:items-center sm:justify-between">
+                    <a href="#" class="flex items-center mb-4 sm:mb-0 space-x-3 rtl:space-x-reverse">
+                        <img src="assets/logo.svg" class="h-8" alt="Flowbite Logo" />
+                        <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Kertaaji</span>
+                    </a>
+                    <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
+                        <li>
+                            <a href="#about" class="hover:underline me-4 md:me-6">About</a>
+                        </li>
+                        <li>
+                            <a href="#structure" class="hover:underline me-4 md:me-6">Structure</a>
+                        </li>
+                        <li>
+                            <a href="#events" class="hover:underline me-4 md:me-6">Event</a>
+                        </li>
+                        <li>
+                            <a href="#contact" class="hover:underline">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+                <span class="block text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2025 <a href="kertaaji.vercel.app" class="hover:underline">Karang Taruna Jitar Dukuh</a>. All Rights Reserved.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer End -->
+  <!-- Contact End -->
+
+
+
+  <!-- Script flowbite start -->
+  <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
+  <!-- Script flowbite end -->
+
+  <!-- Script toggle theme start -->
+   <script>
+    var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+    var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+    // Change the icons inside the button based on previous settings
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        themeToggleLightIcon.classList.remove('hidden');
+    } else {
+        themeToggleDarkIcon.classList.remove('hidden');
+    }
+
+    var themeToggleBtn = document.getElementById('theme-toggle');
+
+    themeToggleBtn.addEventListener('click', function() {
+
+        // toggle icons inside button
+        themeToggleDarkIcon.classList.toggle('hidden');
+        themeToggleLightIcon.classList.toggle('hidden');
+
+        // if set via local storage previously
+        if (localStorage.getItem('color-theme')) {
+            if (localStorage.getItem('color-theme') === 'light') {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            }
+
+        // if NOT set via local storage previously
+        } else {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+        }
+        
+    });
+   </script>
+  <!-- Script toggle theme end -->
+
+  <!-- Script js sendiri start -->
+   <script src="script.js"></script>
+  <!-- Script js sendiri end -->
+</body>
+</html>
