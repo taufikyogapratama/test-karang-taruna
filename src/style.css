@@ -10,6 +10,6 @@ html {
 }
 @media (width >= 48rem) {
   .active-link {
-    color: #1d4ed8;
+    color: #1d4ed8 !important; 
   }
 }
