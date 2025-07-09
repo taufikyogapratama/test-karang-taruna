@@ -7,6 +7,11 @@ html {
     color: white;
     background-color: #1d4ed8;
   }
+
+  .active-link:hover{
+    color: white;
+    background-color: gray;
+  }
 }
 @media (width >= 48rem) {
   .active-link {
